@@ -1,0 +1,33 @@
+{
+  "name": "document-phrase-occurence-parser",
+  "version": "0.0.0",
+  "keywords": [
+    "javascript",
+    "node",
+    "module",
+    "boilerplate"
+  ],
+  "main": "dist/index.js",
+  "browser": "dist-browser/index.js",
+  "author": "Kennedy Rose <krose@escaladesports.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/escaladesports/javascript-module-boilerplate.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "analyze": "esca-scripts analyze --input './src/inject.js'",
+    "build": "esca-scripts build --input './src/index.js' --output './dist/index.js' --cli",
+    "open:github": "opn https://github.com/escaladesports/javascript-module-boilerplate",
+    "prepublishOnly": "npm run build",
+    "reset": "esca-scripts reset",
+    "test": "esca-scripts test"
+  },
+  "devDependencies": {
+    "esca-scripts": "^0.12.0",
+    "npm-run-all": "^4.1.2"
+  },
+  "dependencies": {
+    "subcommander": "^1.0.0"
+  }
+}
