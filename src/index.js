@@ -1,5 +1,5 @@
 import meow from 'meow'
-import readDocs from './read-docs'
+import fetchDocs from './fetch-docs'
 
 const cli = meow(`
 	Usage
@@ -29,7 +29,7 @@ const cli = meow(`
 })
 
 async function parseDocs(){
-	const contents = await readDocs(cli.flags)
+	const contents = await fetchDocs(cli.flags)
 	console.log(contents)
 }
 

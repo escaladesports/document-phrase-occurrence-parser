@@ -35,7 +35,7 @@
     "fs-extra": "^5.0.0",
     "globby": "^7.1.1",
     "meow": "^4.0.0",
-    "pdfreader": "^0.2.4",
+    "pdf-to-text": "^0.0.6",
     "word-extractor": "^0.1.4"
   }
 }

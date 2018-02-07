@@ -1,7 +1,7 @@
 import { join } from 'path'
 import glob from 'globby'
 import WordExtractor from 'word-extractor'
-import PdfReader from 'pdfreader'
+import { pdfToText } from 'pdf-to-text'
 
 async function readWordDocs(options){
 	console.log(`Reading word docs...`)
@@ -49,13 +49,9 @@ function readWord(path){
 
 function readPdf(path){
 	return new Promise((resolve, reject) => {
-		new PdfReader().parseFileItems(path, (err, item) => {
+		pdfToText(path, (err, data) => {
 			if(err) return reject(err)
-			if(!item.text){
-				console.log(`No text found in ${path}`)
-				return resolve('')
-			}
-			resolve(item.text)
+			resolve(data)
 		})
 	})
 }
@@ -63,11 +59,10 @@ function readPdf(path){
 export default async function(options){
 	console.log(`Reading all docs...`)
 	const res = await Promise.all([
-		//readWordDocs(options),
+		readWordDocs(options),
 		readPdfDocs(options),
 	])
 	console.log(`Read all docs`)
-	return res[0]
 	const obj = {
 		...res[0],
 		...res[1],
