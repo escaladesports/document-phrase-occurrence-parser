@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "bin": {
-    "dpop": "node dist"
+    "dpop": "dist/index.js"
   },
   "scripts": {
     "analyze": "esca-scripts analyze --input './src/inject.js'",
