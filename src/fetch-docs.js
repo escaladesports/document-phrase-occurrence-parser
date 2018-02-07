@@ -14,6 +14,7 @@ async function readWordDocs(options){
 	}))
 	const obj = {}
 	paths.forEach((path, key) => {
+		path = path.replace(options.input + '/', '')
 		obj[path] = contents[key]
 	})
 	return obj
@@ -29,6 +30,7 @@ async function readPdfDocs(options){
 	}))
 	const obj = {}
 	paths.forEach((path, key) => {
+		path = path.replace(options.input + '/', '')
 		obj[path] = contents[key]
 	})
 	return obj

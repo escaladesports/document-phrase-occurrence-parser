@@ -1,5 +1,6 @@
 import meow from 'meow'
 import fetchDocs from './fetch-docs'
+import parseDocs from './parse-docs'
 
 const cli = meow(`
 	Usage
@@ -28,9 +29,21 @@ const cli = meow(`
 	}
 })
 
-async function parseDocs(){
+// Format input
+if (!cli.flags.phrases){
+	console.log('--phrases option is required')
+	process.exit(0)
+}
+let phrases = cli.flags.phrases.split(',')
+phrases = phrases.map(str => {
+	return str.trim()
+})
+cli.flags.phrases = phrases
+
+async function op(){
 	const contents = await fetchDocs(cli.flags)
-	console.log(contents)
+	const matches = await parseDocs(contents, cli.flags)
+	console.log(matches)
 }
 
-parseDocs()
+op()
