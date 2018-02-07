@@ -13,3 +13,10 @@ npm install --global document-phrase-occurrence-parser
 ```bash
 dpop --phrases "laser, shirt, the"
 ```
+
+## Extraction Requirements
+
+[Textract](https://github.com/dbashford/textract) is used to extract files. Depending on the files you want to extract and your OS, there may be external dependencies.
+
+* `PDF` extraction requires `pdftotext` be installed, [link](http://www.foolabs.com/xpdf/download.html)
+* `DOC` extraction requires `antiword` be installed, [link](http://www.winfield.demon.nl/), unless on OSX in which case textutil (installed by default) is used.
