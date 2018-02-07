@@ -26,7 +26,7 @@
     "analyze": "esca-scripts analyze --input './src/inject.js'",
     "build": "esca-scripts build --input './src/index.js' --output './dist/index.js' --cli",
     "dev": "npm run build && npm run start",
-    "open:github": "opn https://github.com/escaladesports/document-phrase-occurrence-parser",
+    "travis": "opn https://travis-ci.org/escaladesports/document-phrase-occurrence-parser/branches",
     "prepublishOnly": "npm run build",
     "start": "babel-node dist --phrases 'the, and'",
     "test": "esca-scripts test"
@@ -35,6 +35,7 @@
     "esca-scripts": "^0.12.0"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "fs-extra": "^5.0.0",
     "globby": "^7.1.1",
     "meow": "^4.0.0",
