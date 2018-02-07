@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-const theModule = require('../dist/index')
+const theModule = require('../src')
 
 console.log('MODULE:', theModule)
 
