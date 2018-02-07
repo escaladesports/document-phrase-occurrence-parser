@@ -1,6 +1,7 @@
 import meow from 'meow'
 import fetchDocs from './fetch-docs'
 import parseDocs from './parse-docs'
+import frequency from './frequency'
 
 const cli = meow(`
 	Usage
@@ -41,9 +42,16 @@ phrases = phrases.map(str => {
 cli.flags.phrases = phrases
 
 async function op(){
-	const contents = await fetchDocs(cli.flags)
-	const matches = await parseDocs(contents, cli.flags)
-	console.log(matches)
+	let contents = await fetchDocs(cli.flags)
+	let matches = await parseDocs(contents, cli.flags)
+	matches = frequency(matches)
+	matches.forEach(match => {
+		console.log('')
+		console.log(match.path)
+		for(let i in match.words){
+			console.log(`"${i}": ${match.words[i]}`)
+		}
+	})
 }
 
 op()

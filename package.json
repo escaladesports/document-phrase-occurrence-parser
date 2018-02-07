@@ -19,6 +19,9 @@
     "url": "https://github.com/escaladesports/document-phrase-occurence-parser.git"
   },
   "license": "MIT",
+  "bin": {
+    "dpop": "node dist"
+  },
   "scripts": {
     "analyze": "esca-scripts analyze --input './src/inject.js'",
     "build": "esca-scripts build --input './src/index.js' --output './dist/index.js' --cli",

@@ -4,6 +4,7 @@ function getFrequency(phrase, string){
 	string = string.toLowerCase()
 	phrase = phrase.toLowerCase()
 	string = string.replace(regBreak, ' ')
+	string = ` ${string} `
 	return string.split(phrase).length - 1
 }
 
